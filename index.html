@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Technologie du Web - Projet - TRAN MAUPAS</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+		
+	</head>
+
+	<body>
+		<div id="vue-instance">
+			<header>
+				<span id="header_title">Projet Technologies du Web</span>
+			</header>
+			<div id="content_block">
+				<button v-on:click="getAllUsers" id="test">Test liaison DB</button>
+				{{ users }}
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+        <script type="text/javascript" src="js/vue-resource.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+
+	</body>
+</html>

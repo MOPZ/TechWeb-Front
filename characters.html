@@ -42,14 +42,67 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="users.html">Users</a></li>
-            <li><a href="characters.html">Characters</a></li>
+            <li class="active"><a href="characters.html">Characters</a></li>
             <li><a href="alliances.html">Alliances</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
+    <div id="vue-characters" class="container">
 
+      <h1>get All Characters</h1>
+      <div class="col-md-12 text-center">
+        <button v-on:click="getAllCharacters" class="btn btn-info">Load Characters list</button>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Class</th>
+          <th>User ID</th>
+          <th>Position X</th>
+          <th>Position Y</th>
+        </thead>
+        <tbody>
+          <tr v-for="character in characters" v-on:click="getCharById(character.id)">
+            <td>{{ character.id }}</td>
+            <td>{{ character.name }}</td>
+            <td>{{ character.class }}</td>
+            <td>{{ character.user_id }}</td>
+            <td>{{ character.id }}</td>
+            <td>{{ character.id }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>get Specific Char by Id</h2>
+
+      <div class="col-xs-3 input-group">
+        <label class="sr-only" for="selectedId">Char Id:</label>
+        <input v-model="selectedId" type="text" class="form-control" id="selectedId" placeholder="Id">
+        <span class="input-group-btn">
+          <button v-on:click="getCharById(selectedId)" class="btn btn-info">Select Char</button>
+        </span>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>       
+            <td>{{ selectedChar.id }}</td>
+            <td>{{ selectedChar.name }}</td>
+            <td>{{ selectedChar.class }}</td>
+            <td>{{ selectedChar.user_id }}</td>
+            <td>{{ selectedChar.position }}</td>
+            <td>{{ selectedChar.id }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h1>
+    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -60,5 +113,8 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/vue-resource.min.js"></script>
+    <script type="text/javascript" src="js/characters.js"></script>
   </body>
 </html>

@@ -11,7 +11,8 @@ var view = new Vue({
             var url = 'http://localhost:3000/users';
             this.$http.get(url).then(function(response){
                 //Success
-                this.users = response.body;
+                console.log(response.body);
+                this.users = response.body.users;
                 }, function(response){
                 //Failure
             });
@@ -20,7 +21,8 @@ var view = new Vue({
 	        var url = 'http://localhost:3000/users/' + selectedId;
 	        this.$http.get(url).then(function(response){
 	        	//SUCCESS
-	        	this.selectedUser = response.body;
+	        	console.log(response.body);
+	        	this.selectedUser = response.body.user;
 	        },function(response){
 	        	//FAILURE
 	        });

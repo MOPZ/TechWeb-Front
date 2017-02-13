@@ -2,7 +2,7 @@ var view = new Vue({
 	el: "#vue-alliances",
 
 	data: {
-		selectedId:0,
+		selectedId:1,
 		alliances:{},
 		selectedAlliance:{},
 	},
@@ -11,7 +11,7 @@ var view = new Vue({
             var url = 'http://localhost:3000/alliances';
             this.$http.get(url).then(function(response){
                 //Success
-                this.alliances = response.body;
+                this.alliances = response.body.alliances;
                 }, function(response){
                 //Failure
             });
@@ -20,7 +20,7 @@ var view = new Vue({
 	        var url = 'http://localhost:3000/alliances/' + selectedId;
 	        this.$http.get(url).then(function(response){
 	        	//SUCCESS
-	        	this.selectedAlliance = response.body;
+	        	this.selectedAlliance = response.body.alliance;
 	        },function(response){
 	        	//FAILURE
 	        });
